@@ -15,7 +15,7 @@ export const styleSheet= {
 
     admin_card:{
         width: '100vw',
-        height: '85vh',
+        // height: '85vh',
         alignItems: 'flex-start',
         margin:'30px 0 0 0',
         justifyContent: 'space-evenly',

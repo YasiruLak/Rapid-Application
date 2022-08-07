@@ -84,7 +84,7 @@ export default class ResponsiveAppBar extends Component {
                                     textDecoration: 'none',
                                 }}
                             >
-                                LOGO
+                                SUPERMARKET
                             </Typography>
 
                             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -142,7 +142,7 @@ export default class ResponsiveAppBar extends Component {
                                     textDecoration: 'none',
                                 }}
                             >
-                                LOGO
+                                SUPERMARKET
                             </Typography>
                             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                                 {this.pages.map((page) => (
@@ -159,7 +159,7 @@ export default class ResponsiveAppBar extends Component {
                             <Box sx={{ flexGrow: 0 }}>
                                 <Tooltip title="Open settings">
                                     <IconButton onClick={this.handleOpenUserMenu} sx={{ p: 0 }}>
-                                        <Avatar alt="Remy Sharp" src="https://avatars.githubusercontent.com/u/71526158?v=4" />
+                                        <Avatar alt="Remy Sharp" src="https://avatars.githubusercontent.com/u/80274745?v=4" />
                                     </IconButton>
                                 </Tooltip>
                                 <Menu

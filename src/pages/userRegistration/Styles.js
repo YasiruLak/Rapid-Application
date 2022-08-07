@@ -1,5 +1,6 @@
 export const styleSheet= {
     customer_container:{
+        //height: '89vh',
         alignItems: 'center',
         justifyContent: 'center',
         display: 'flex',
@@ -7,7 +8,7 @@ export const styleSheet= {
         flexDirection: 'column',
         overflowX: 'hidden',
         overflowY: 'hidden',
-        backgroundColor:'#D9D9D9'
+        backgroundColor:'#ffffff'
     }
 
 }
