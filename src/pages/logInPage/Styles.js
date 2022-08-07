@@ -1,8 +1,8 @@
 export const styleSheet= {
 
     logIn_container:{
-        width:'100vw',
-        height:'100vh',
+        // width:'100vw',
+        height:'89vh',
         alignItems: 'center',
         justifyContent: 'center',
         display: 'flex',
@@ -19,7 +19,7 @@ export const styleSheet= {
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'row',
-        backgroundColor: "#C5B5B5"
+        backgroundColor: "white"
     },
 
     logIn_header:{
@@ -30,7 +30,7 @@ export const styleSheet= {
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'column',
-        color: "#ffffff"
+        color: "#000000"
     },
 
     text_field:{

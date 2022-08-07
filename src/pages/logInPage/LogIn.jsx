@@ -28,7 +28,7 @@ class LogIn extends Component {
                                            size="small"/>
                             </Grid>
                             <Grid className={classes.logIn_button}>
-                                <Button variant="contained" style={{backgroundColor:'#7C8DEA',color:'black',width:'150px'}}>Login</Button>
+                                <Button variant="contained" color="primary" style={{width:'150px'}}>Login</Button>
                             </Grid>
                             <Grid className={classes.click_here}>
                                 <Typography variant="body2" gutterBottom component="div" style={{color:'black'}}>
