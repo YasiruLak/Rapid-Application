@@ -16,7 +16,7 @@ class CartManage extends Component{
             <>
                 <ValidatorForm ref="form" className="pt-2">
 
-                    <Grid>
+                    <Grid className={classes.cart_container}>
 
                     </Grid>
 

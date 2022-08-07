@@ -37,10 +37,10 @@ export default class ResponsiveAppBar extends Component {
             text: 'Home',
             to: '/'
         },
-        {
-            text: 'Settings',
-            to: '/setting'
-        },
+        // {
+        //     text: 'Settings',
+        //     to: '/setting'
+        // },
         {
             text: 'Log out',
             to: '/logIn'
