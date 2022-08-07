@@ -5,15 +5,19 @@ import CartManage from "../pages/cartManage/CartManage";
 import DashBoard from "../pages/dashBoard/DashBoard";
 import ProductManage from "../pages/productManage/ProductManage";
 import UserRegistration from "../pages/userRegistration/UserRegistration";
+import ResponsiveAppBar from "../pages/appBar";
 
 function App() {
   return (
+
       <Routes>
-        <Route exact path='/login' element={<LogIn/>}/>
-        <Route path='/cart' element={<CartManage/>}/>
-        <Route path='/dashBoard' element={<DashBoard/>}/>
-        <Route path='/product' element={<ProductManage/>}/>
-        <Route path='/register' element={<UserRegistration/>}/>
+        <Route path="/" element={<ResponsiveAppBar />}>
+          <Route index element={<DashBoard />} />
+          <Route path="cart" element={<CartManage />} />
+          <Route path="product" element={<ProductManage />} />
+          <Route path="register" element={<UserRegistration />} />
+          <Route path="logIn" element={<LogIn />} />
+        </Route>
       </Routes>
   );
 }
