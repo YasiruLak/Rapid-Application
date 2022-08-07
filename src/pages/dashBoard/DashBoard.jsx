@@ -19,7 +19,7 @@ class DashBoard extends Component {
                         justifyContent="center"
                         alignItems="center">
                         <Card sx={{minWidth: 275}} style={{
-                            backgroundColor: '#808e9b',
+                            backgroundColor: '#D9D9D9',
                             color: 'white',
                             width: '200px',
                             height:'150px',
@@ -50,7 +50,7 @@ class DashBoard extends Component {
                         justifyContent="center"
                         alignItems="center">
                         <Card sx={{minWidth: 275}} style={{
-                            backgroundColor: '#808e9b',
+                            backgroundColor: '#D9D9D9',
                             color: 'white',
                             width: '200px',
                             height:'150px',
@@ -81,7 +81,7 @@ class DashBoard extends Component {
                         justifyContent="center"
                         alignItems="center">
                         <Card sx={{minWidth: 275}} style={{
-                            backgroundColor: '#808e9b',
+                            backgroundColor: '#D9D9D9',
                             color: 'white',
                             width: '200px',
                             height:'150px',

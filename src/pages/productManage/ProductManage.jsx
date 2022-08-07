@@ -38,9 +38,9 @@ class ProductManage extends Component {
                                       display: 'flex',
                                       flexWrap: 'wrap',
                                       justifyContent: 'center',
-                                      backgroundColor: '#D9D9D9'
+                                      backgroundColor: '#ffffff'
                                   }}>
-                                <Typography variant="h4" style={{margin: '0 0 60px 0', color: 'black',}}>Product
+                                <Typography variant="h4" style={{margin: '20px 0 60px 0', color: 'black',}}>Product
                                     Manage</Typography>
                             </Grid>
                             <Grid width="100%" container direction="row" justifyContent="center" alignItems="center">
@@ -51,7 +51,7 @@ class ProductManage extends Component {
                                         placeholder="D00-001"
                                         variant="outlined"
                                         size="small"
-                                        style={{width: '40vw',backgroundColor:'white'}}
+                                        style={{width: '40vw'}}
                                         label="Title"
                                         // value={this.state.formData.id}
                                         // onChange={(e) => {
@@ -70,7 +70,7 @@ class ProductManage extends Component {
                                         placeholder="D00-001"
                                         variant="outlined"
                                         size="small"
-                                        style={{width: '40vw',backgroundColor:'white'}}
+                                        style={{width: '40vw'}}
                                         label="Price"
                                         // value={this.state.formData.id}
                                         // onChange={(e) => {
@@ -98,7 +98,7 @@ class ProductManage extends Component {
                                         getOptionLabel={
                                             (option) => option.type
                                         }
-                                        style={{width: '40vw',backgroundColor:'white'}}
+                                        style={{width: '40vw'}}
                                         id="controllable-states-demo"
                                         options={this.state.categoryTypes}
                                         size="small"
@@ -115,7 +115,7 @@ class ProductManage extends Component {
                                         variant="outlined"
                                         multiline
                                         maxRows={4}
-                                        style={{width: '40vw',backgroundColor:'white'}}
+                                        style={{width: '40vw'}}
                                         label="Description"
                                         // value={this.state.formData.id}
                                         // onChange={(e) => {
@@ -129,7 +129,7 @@ class ProductManage extends Component {
                             </Grid>
                             <Grid width="100%" container direction="row" justifyContent="flex-start" alignItems="center">
                                 <div className={classes.img_div}>
-                                    <PersonIcon style={{color:'white',fontSize:'180px'}}/>
+                                    <PersonIcon style={{color:'D9D9D9',fontSize:'180px'}}/>
                                 </div>
                                 <div><input
 

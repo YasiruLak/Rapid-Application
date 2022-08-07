@@ -8,12 +8,12 @@ export const styleSheet= {
         flexDirection: 'column',
         overflowX: 'hidden',
         overflowY: 'hidden',
-        backgroundColor:'#D9D9D9'
+        backgroundColor:'#ffffff'
     },
 
 img_div:{
     width : '150px',
-    backgroundColor : '#D9D9D9',
+    backgroundColor : '#ffffff',
     borderRadius: "20px",
     display: 'flex',
     alignItems: 'center',

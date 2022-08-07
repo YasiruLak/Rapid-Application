@@ -33,9 +33,9 @@ class CartManage extends Component{
                                       display: 'flex',
                                       flexWrap: 'wrap',
                                       justifyContent: 'center',
-                                      backgroundColor: '#D9D9D9'
+                                      backgroundColor: '#ffffff'
                                   }}>
-                                <Typography variant="h4" style={{margin: '0 0 60px 0', color: 'black',}}>Cart
+                                <Typography variant="h4" style={{margin: '30px 0 60px 0', color: 'black',}}>Cart
                                     Manage</Typography>
                             </Grid>
                             <Grid width="100%" container direction="row" justifyContent="center" alignItems="center" style={{height:'15vh'}}>
@@ -52,7 +52,7 @@ class CartManage extends Component{
                                         getOptionLabel={
                                             (option) => option.type
                                         }
-                                        style={{width: '40vw',backgroundColor:'white'}}
+                                        style={{width: '40vw'}}
                                         id="controllable-states-demo"
                                         options={this.state.userNames}
                                         size="small"
@@ -67,7 +67,7 @@ class CartManage extends Component{
                                         placeholder=""
                                         variant="outlined"
                                         size="small"
-                                        style={{width: '40vw',backgroundColor:'white'}}
+                                        style={{width: '40vw'}}
                                         label="Price"
                                         // value={this.state.formData.id}
                                         // onChange={(e) => {
@@ -95,7 +95,7 @@ class CartManage extends Component{
                                         getOptionLabel={
                                             (option) => option.type
                                         }
-                                        style={{width: '40vw',backgroundColor:'white'}}
+                                        style={{width: '40vw'}}
                                         id="controllable-states-demo"
                                         options={this.state.productTitles}
                                         size="small"
@@ -112,7 +112,7 @@ class CartManage extends Component{
                                         variant="outlined"
                                         size="small"
                                         maxRows={4}
-                                        style={{width: '40vw',backgroundColor:'white'}}
+                                        style={{width: '40vw'}}
                                         label="Qty"
                                         // value={this.state.formData.id}
                                         // onChange={(e) => {

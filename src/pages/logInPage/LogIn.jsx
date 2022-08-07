@@ -18,7 +18,7 @@ class LogIn extends Component {
                     <Grid className={classes.logIn_container}>
                         <Grid className={classes.logIn_form}>
                             <Grid className={classes.logIn_header}>
-                                <Typography variant="h3" gutterBottom component="div" >
+                                <Typography variant="h4" gutterBottom component="div" >
                                     Login
                                 </Typography>
                             </Grid>

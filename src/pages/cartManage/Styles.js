@@ -8,7 +8,7 @@ export const styleSheet= {
         flexDirection: 'column',
         overflowX: 'hidden',
         overflowY: 'hidden',
-        backgroundColor:'#D9D9D9'
+        backgroundColor:'#ffffff'
     }
 
 }
