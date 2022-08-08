@@ -3,6 +3,8 @@ import {withStyles} from "@mui/styles";
 import {styleSheet} from "./Styles";
 import {ValidatorForm} from "react-material-ui-form-validator";
 import {Button, Grid, TextField, Typography} from "@mui/material";
+import {Link} from "react-router-dom";
+
 
 class LogIn extends Component {
     constructor(props) {
@@ -18,7 +20,7 @@ class LogIn extends Component {
                     <Grid className={classes.logIn_container}>
                         <Grid className={classes.logIn_form}>
                             <Grid className={classes.logIn_header}>
-                                <Typography variant="h4" gutterBottom component="div" >
+                                <Typography variant="h4" gutterBottom component="div">
                                     Login
                                 </Typography>
                             </Grid>
@@ -28,16 +30,21 @@ class LogIn extends Component {
                                            size="small"/>
                             </Grid>
                             <Grid className={classes.logIn_button}>
-                                <Button variant="contained" color="primary" href={"/"} style={{width:'150px'}}>Login</Button>
+                                <Button variant="contained" color="primary" href={"/"}
+                                        style={{width: '150px'}}>Login</Button>
                             </Grid>
                             <Grid className={classes.click_here}>
-                                <Typography variant="body2" gutterBottom component="div" style={{color:'black'}}>
-                                    Create new user account? <span style={{color:'blue'}}>click here</span>
+                                <Typography variant="body2" gutterBottom component="div" style={{color: 'black'}}>
+                                    Create new user account?
+                                    <span>
+                                        <Link to="/register" style={{textDecoration: "none", paddingLeft: "5px"}}>
+                                    click here
+                                </Link>
+                            </span>
                                 </Typography>
                             </Grid>
                         </Grid>
                     </Grid>
-
                 </ValidatorForm>
             </>
         )
