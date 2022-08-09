@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../axsios";
 
 class ProductService{
     postProduct = async (data) => {
@@ -28,7 +28,7 @@ class ProductService{
         return await promise;
     };
 
-    fetchASingleProduct= async (params) => {
+    fetchAsingleProduct= async (params) => {
         const promise = new Promise((resolve, reject) => {
             axios.get('products',{params:params})
                 .then((res) => {

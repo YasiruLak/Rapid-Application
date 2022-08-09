@@ -4,12 +4,21 @@ import {styleSheet} from "./Styles";
 import {Autocomplete, Button, Grid, TextField, Typography} from "@mui/material";
 import {TextValidator, ValidatorForm} from "react-material-ui-form-validator";
 import PersonIcon from '@mui/icons-material/Person';
+import ProductService from "../../service/ProductService";
 
 class ProductManage extends Component {
     constructor(props) {
-        super(props);
-
+        super(props)
         this.state = {
+
+            productData: {
+                title: '',
+                price: '',
+                description: '',
+                image: '',
+                category: ''
+            },
+
             categoryTypes: [
                 {
                     type: 'Small'
@@ -21,15 +30,144 @@ class ProductManage extends Component {
                     type: 'Large'
                 }
             ],
+
+            alert: false,
+            message: '',
+            severity: '',
+
+            data: [],
         }
     }
+
+    loadData = async () => {
+        let res = await ProductService.fetchProduct();
+
+        if (res.status === 200) {
+            this.setState({
+                data: res.data.data
+            });
+        }
+        console.log(this.state.data)    // print customers array
+
+    };
+
+    //Data Add
+    submitProduct = async () => {
+        let formData = this.state.productData;
+
+        let res = await ProductService.postProduct(formData);
+        if (res.status === 200) {
+            this.setState({
+                alert: true,
+                message: 'Product Successfully Added',
+                severity: 'success',
+            });
+            this.clearFields();
+            //this.loadData();
+        } else {
+            this.setState({
+                alert: true,
+                message: res.response.data.message,
+                severity: 'error'
+            });
+        }
+
+    };
+
+    //Data Delete
+    deleteProduct = async (id) => {
+        let params = {
+            id: id
+        }
+        let res = await ProductService.deleteProduct(params);
+        console.log(res)
+
+        if (res.status === 200) {
+            this.setState({
+                alert: true,
+                message: res.data.message,
+                severity: 'success'
+            });
+            //this.loadData();
+        } else {
+            this.setState({
+                alert: true,
+                message: res.data.message,
+                severity: 'error'
+            });
+        }
+    };
+
+    //Update
+    updateProduct = (data) => {
+        console.log(data)
+
+        this.setState({
+            productData: {
+                title: data.title,
+                price: data.price,
+                description: data.description,
+                image: data.image,
+                category: data.category
+            },
+        });
+    };
+
+    //Get A Single Product
+    getAsingleProduct = async (id) => {
+        let params = {
+            id: id
+        }
+        let res = await ProductService.fetchAsingleProduct(params);
+        console.log(res)
+
+        if (res.status === 200) {
+            this.setState({
+                alert: true,
+                message: res.data.message,
+                severity: 'success'
+            });
+            //this.loadData();
+        } else {
+            this.setState({
+                alert: true,
+                message: res.data.message,
+                severity: 'error'
+            });
+        }
+    };
+
+    //Get Product Categories
+    getAllProductCategories = async () => {
+        let res = await ProductService.fetchLimitGetAllProducts();
+
+        if (res.status === 200) {
+            this.setState({
+                data: res.data.data
+            });
+        }
+        console.log(this.state.data)
+
+    };
+
+    clearFields = () => {
+        this.setState({
+            productData: {
+                title: '',
+                price: '',
+                description: '',
+                image: '',
+                category: ''
+            },
+        });
+    };
 
 
     render() {
         const {classes} = this.props
         return (
             <>
-                <ValidatorForm ref="form" className="pt-2">
+                <ValidatorForm ref="form" className="pt-2" onSubmit={this.submitProduct}>
                     <Grid className={classes.product_container}>
                         <Grid container className="pt-2" spacing={2}>
                             <Grid item lg={12} xs={12} sm={12} md={12}
@@ -48,17 +186,17 @@ class ProductManage extends Component {
                                       justifyContent="center" alignItems="center">
                                     <TextValidator
                                         id="outlinedbasic"
-                                        placeholder="D00-001"
+                                        placeholder=""
                                         variant="outlined"
                                         size="small"
                                         style={{width: '40vw'}}
                                         label="Title"
-                                        // value={this.state.formData.id}
-                                        // onChange={(e) => {
-                                        //     let formData = this.state.formData
-                                        //     formData.id = e.target.value
-                                        //     this.setState({formData})
-                                        // }}
+                                        value={this.state.productData.title}
+                                        onChange={(e) => {
+                                            let formData = this.state.productData
+                                            formData.title = e.target.value
+                                            this.setState({ formData })
+                                        }}
                                         validators={['required']}
                                     />
                                 </Grid>
@@ -67,17 +205,17 @@ class ProductManage extends Component {
                                 >
                                     <TextValidator
                                         id="outlinedbasic"
-                                        placeholder="D00-001"
+                                        placeholder=""
                                         variant="outlined"
                                         size="small"
                                         style={{width: '40vw'}}
                                         label="Price"
-                                        // value={this.state.formData.id}
-                                        // onChange={(e) => {
-                                        //     let formData = this.state.formData
-                                        //     formData.id = e.target.value
-                                        //     this.setState({formData})
-                                        // }}
+                                        value={this.state.productData.price}
+                                        onChange={(e) => {
+                                            let formData = this.state.productData
+                                            formData.price = e.target.value
+                                            this.setState({ formData })
+                                        }}
                                         validators={['required']}
                                     />
                                 </Grid>
@@ -88,13 +226,13 @@ class ProductManage extends Component {
                                       justifyContent="center" alignItems="center"
                                 >
                                     <Autocomplete
-                                        // onChange={(e, value, r) => {
-                                        //
-                                        //     let formData = this.state.formData
-                                        //     formData.fuelType = value.type
-                                        //     this.setState({formData})
-                                        //
-                                        // }}
+                                        onChange={(e, value, r) => {
+
+                                            let formData = this.state.productData
+                                            formData.category = value.type
+                                            this.setState({formData})
+
+                                        }}
                                         getOptionLabel={
                                             (option) => option.type
                                         }
@@ -117,12 +255,12 @@ class ProductManage extends Component {
                                         maxRows={4}
                                         style={{width: '40vw'}}
                                         label="Description"
-                                        // value={this.state.formData.id}
-                                        // onChange={(e) => {
-                                        //     let formData = this.state.formData
-                                        //     formData.id = e.target.value
-                                        //     this.setState({formData})
-                                        // }}
+                                        value={this.state.productData.description}
+                                        onChange={(e) => {
+                                            let formData = this.state.productData
+                                            formData.description = e.target.value
+                                            this.setState({ formData })
+                                        }}
                                         validators={['required']}
                                     />
                                 </Grid>
@@ -157,8 +295,12 @@ class ProductManage extends Component {
                                 </div>
                             </Grid>
                             <Grid width="100%" container direction="row" justifyContent="flex-end" alignItems="flex-end">
-                                <Button variant="contained" color="error" style={{margin:'20px 0 30px 0',width:'120px'}}>Clear</Button>
-                                <Button variant="contained" style={{margin:'20px 60px 30px 20px',width:'120px'}}>Save</Button>
+                                <Button variant="contained" color="error" style={{margin:'20px 0 30px 0',width:'120px'}}
+                                        onClick={() => {
+                                            this.clearFields();
+                                        }}
+                                >Clear</Button>
+                                <Button variant="contained" type="submit" style={{margin:'20px 60px 30px 20px',width:'120px'}}>Save</Button>
                             </Grid>
                         </Grid>
                     </Grid>
